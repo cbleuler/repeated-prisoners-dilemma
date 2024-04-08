@@ -1,7 +1,7 @@
+import pytest
 from game import Game
 from round import Round
 from move import Move
-from tests.fixtures import *
 
 
 @pytest.fixture(scope='function')

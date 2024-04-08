@@ -1,8 +1,4 @@
-import pytest
-
-from payoff import Payoff
 from move import Move
-from tests.fixtures import *
 
 
 def test_calculate_payoff_cooperate_cooperate(prisoners_dilemma_payoff):
