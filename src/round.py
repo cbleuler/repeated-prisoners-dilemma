@@ -31,3 +31,8 @@ class Round:
             payoff_player_1=self.payoff_player(player_number=PlayerNumber.PLAYER_1, payoff=payoff),
             payoff_player_2=self.payoff_player(player_number=PlayerNumber.PLAYER_2, payoff=payoff),
         )
+
+    def get_player_move(self, player_number: PlayerNumber):
+        if player_number == PlayerNumber.PLAYER_1:
+            return self.move_player_1
+        return self.move_player_2

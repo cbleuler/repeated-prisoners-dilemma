@@ -1,6 +1,8 @@
 import pytest
 
+from player import PlayerNumber
 from round import Round, RoundResult
+from move import Move
 
 
 def test_payoff_player(prisoners_dilemma_payoff, cooperating_player_1, defecting_player_2):
@@ -19,3 +21,10 @@ def test_evaluate_round(prisoners_dilemma_payoff, cooperating_player_1, defectin
                                         payoff_player_2=5)
 
     assert game_round.evaluate_round(payoff=prisoners_dilemma_payoff) == expected_round_result
+
+
+def test_get_player_move():
+    game_round = Round(move_player_1=Move.COOPERATE, move_player_2=Move.DEFECT)
+
+    assert game_round.get_player_move(player_number=PlayerNumber.PLAYER_1) == Move.COOPERATE
+    assert game_round.get_player_move(player_number=PlayerNumber.PLAYER_2) == Move.DEFECT
