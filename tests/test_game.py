@@ -7,7 +7,8 @@ from move import Move
 @pytest.fixture(scope='function')
 def game(prisoners_dilemma_payoff, cooperating_player_1, defecting_player_2):
     game = Game(
-        number_of_rounds=2,
+        min_number_of_rounds=2,
+        max_number_of_rounds=2,
         payoff=prisoners_dilemma_payoff,
         players=(cooperating_player_1, defecting_player_2),
     )
@@ -37,7 +38,9 @@ def test_evaluate_game(game):
         'moves_player_1': ['Cooperate', 'Cooperate'],
         'moves_player_2': ['Defect', 'Defect'],
         'total_score_player_1': 0,
-        'total_score_player_2': 10
+        'total_score_player_2': 10,
+        'relative_achieved_points_player_1': 0.0,
+        'relative_achieved_points_player_2': 1.6666666666666667
     }
 
     assert game.evaluate_game() == expected_evaluation
