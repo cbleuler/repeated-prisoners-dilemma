@@ -1,0 +1,24 @@
+name: Unit Tests
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "master" ]
+  fork:
+  workflow_dispatch:
+
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/setup-poetry-env
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: run pytest
+        run: |
+          pytest

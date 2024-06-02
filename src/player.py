@@ -22,6 +22,6 @@ class Player:
     strategy: Strategy
     number: PlayerNumber
 
-    def play_move(self, rounds: list['Round']) -> 'Move':
+    def play_move(self, rounds: list["Round"]) -> "Move":
         next_move = self.strategy.calculate_next_move(rounds=rounds, player_number=self.number)
         return next_move

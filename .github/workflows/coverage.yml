@@ -1,0 +1,22 @@
+name: Test Coverage
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  fork:
+  workflow_dispatch:
+
+jobs:
+  run-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/setup-poetry-env
+        with:
+          python-version: "3.11"
+      - name: run coverage
+        run: |
+          coverage run -m pytest
+          coverage report --fail-under=95
