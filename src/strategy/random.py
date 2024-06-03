@@ -14,7 +14,11 @@ class UniformRandomStrategy(Strategy):
         if random_seed:
             np.random.seed(random_seed)
 
-    def calculate_next_move(self, rounds: list['Round'], player_number: 'PlayerNumber'):
-        strategy_array = np.random.choice([Move.COOPERATE, Move.DEFECT], size=1, replace=False,
-                                          p=[1 - self.probability_defection, self.probability_defection])
+    def calculate_next_move(self, rounds: list["Round"], player_number: "PlayerNumber"):
+        strategy_array = np.random.choice(
+            [Move.COOPERATE, Move.DEFECT],
+            size=1,
+            replace=False,
+            p=[1 - self.probability_defection, self.probability_defection],
+        )
         return strategy_array[0]

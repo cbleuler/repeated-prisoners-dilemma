@@ -12,7 +12,7 @@ class TitForNTatStrategy(Strategy):
         if len(rounds) < self.n_tats:
             return Move.COOPERATE
 
-        for i in range(1, self.n_tats+1):
+        for i in range(1, self.n_tats + 1):
             if rounds[-i].get_player_move(player_number.opponent) == Move.COOPERATE:
                 return Move.COOPERATE
         return Move.DEFECT

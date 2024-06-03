@@ -1,0 +1,16 @@
+name: Typecheck
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/workflows/setup-poetry-env
+        with:
+          python-version: "3.11"
+      - name: run mypy
+        run: |
+          mypy src

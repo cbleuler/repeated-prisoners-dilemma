@@ -1,0 +1,13 @@
+[MASTER]
+disable=
+    C0114, # missing-module-docstring
+    C0115, # missing-class-docstring
+    C0116, # missing-function-docstring
+    R0903, # Too few public methods
+    R0902, # Too many instance attributes
+
+[FORMAT]
+max-line-length=120
+
+[DESIGN]
+max-args=6
