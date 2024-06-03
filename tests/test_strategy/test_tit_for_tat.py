@@ -6,7 +6,8 @@ from player import PlayerNumber
 
 
 @pytest.mark.parametrize(
-    "opponent_moves,resulting_move,n_tats", [
+    "opponent_moves,resulting_move,n_tats",
+    [
         ([Move.COOPERATE, Move.DEFECT, Move.DEFECT], Move.DEFECT, 2),
         ([Move.COOPERATE, Move.DEFECT, Move.DEFECT], Move.COOPERATE, 3),
         ([Move.DEFECT, Move.DEFECT, Move.DEFECT], Move.DEFECT, 3),

@@ -11,5 +11,3 @@ class TestConstantCooperationStrategy:
 class TestConstantDefectionStrategy:
     def test_calculate_next_move(self):
         assert ConstantDefectionStrategy().calculate_next_move([], PlayerNumber.PLAYER_1) == Move.DEFECT
-
-        
