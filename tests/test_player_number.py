@@ -1,4 +1,4 @@
-from player import PlayerNumber
+from repeated_prisoners_dilemma.player import PlayerNumber
 
 
 def test_opponent():

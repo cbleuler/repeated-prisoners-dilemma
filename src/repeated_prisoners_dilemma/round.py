@@ -1,8 +1,8 @@
 from __future__ import annotations
 from dataclasses import dataclass
 
-from move import Move
-from player import PlayerNumber
+from repeated_prisoners_dilemma.move import Move
+from repeated_prisoners_dilemma.player import PlayerNumber
 
 
 @dataclass

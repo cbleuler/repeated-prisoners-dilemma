@@ -1,6 +1,6 @@
-from strategy.constant import ConstantCooperationStrategy, ConstantDefectionStrategy
-from move import Move
-from player import PlayerNumber
+from repeated_prisoners_dilemma.strategy.constant import ConstantCooperationStrategy, ConstantDefectionStrategy
+from repeated_prisoners_dilemma.move import Move
+from repeated_prisoners_dilemma.player import PlayerNumber
 
 
 class TestConstantCooperationStrategy:

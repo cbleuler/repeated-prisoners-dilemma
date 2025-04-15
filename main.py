@@ -1,8 +1,8 @@
-from strategy.tit_for_tat import TitForNTatStrategy
-from strategy.random import UniformRandomStrategy
-from player import Player, PlayerNumber
-from game import Game
-from payoff import Payoff
+from repeated_prisoners_dilemma.strategy import TitForNTatStrategy
+from repeated_prisoners_dilemma.strategy import UniformRandomStrategy
+from repeated_prisoners_dilemma.player import Player, PlayerNumber
+from repeated_prisoners_dilemma.game import Game
+from repeated_prisoners_dilemma.payoff import Payoff
 
 
 def main():

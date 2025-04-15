@@ -1,8 +1,6 @@
-import pytest
-
-from player import PlayerNumber
-from round import Round, RoundResult
-from move import Move
+from repeated_prisoners_dilemma.player import PlayerNumber
+from repeated_prisoners_dilemma.round import Round, RoundResult
+from repeated_prisoners_dilemma.move import Move
 
 
 def test_payoff_player(prisoners_dilemma_payoff, cooperating_player_1, defecting_player_2):

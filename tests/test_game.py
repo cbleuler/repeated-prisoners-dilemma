@@ -1,7 +1,7 @@
 import pytest
-from game import Game
-from round import Round
-from move import Move
+from repeated_prisoners_dilemma.game import Game
+from repeated_prisoners_dilemma.round import Round
+from repeated_prisoners_dilemma.move import Move
 
 
 @pytest.fixture(scope="function")

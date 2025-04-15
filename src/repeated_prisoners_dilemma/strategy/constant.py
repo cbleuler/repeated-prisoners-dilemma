@@ -1,8 +1,8 @@
 from __future__ import annotations
 
-from round import Round
-from move import Move
-from strategy.strategy import Strategy
+from repeated_prisoners_dilemma.round import Round
+from repeated_prisoners_dilemma.move import Move
+from repeated_prisoners_dilemma.strategy.strategy import Strategy
 
 
 class ConstantCooperationStrategy(Strategy):
