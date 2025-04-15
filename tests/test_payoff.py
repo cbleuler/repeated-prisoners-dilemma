@@ -1,4 +1,4 @@
-from move import Move
+from repeated_prisoners_dilemma.move import Move
 
 
 def test_calculate_payoff_cooperate_cooperate(prisoners_dilemma_payoff):

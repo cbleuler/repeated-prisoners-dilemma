@@ -1,7 +1,7 @@
 import pytest
-from payoff import Payoff
-from player import Player, PlayerNumber
-from strategy.constant import ConstantCooperationStrategy, ConstantDefectionStrategy
+from repeated_prisoners_dilemma.payoff import Payoff
+from repeated_prisoners_dilemma.player import Player, PlayerNumber
+from repeated_prisoners_dilemma.strategy.constant import ConstantCooperationStrategy, ConstantDefectionStrategy
 
 
 @pytest.fixture

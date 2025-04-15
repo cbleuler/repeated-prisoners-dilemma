@@ -2,10 +2,10 @@ from dataclasses import dataclass, field
 
 import numpy as np
 
-from payoff import Payoff
-from player import Player
-from round import Round
-from move import Move
+from repeated_prisoners_dilemma.payoff import Payoff
+from repeated_prisoners_dilemma.player import Player
+from repeated_prisoners_dilemma.round import Round
+from repeated_prisoners_dilemma.move import Move
 
 
 @dataclass

@@ -1,8 +1,8 @@
 import pytest
-from strategy.tit_for_tat import TitForNTatStrategy
-from round import Round
-from move import Move
-from player import PlayerNumber
+from repeated_prisoners_dilemma.strategy.tit_for_tat import TitForNTatStrategy
+from repeated_prisoners_dilemma.round import Round
+from repeated_prisoners_dilemma.move import Move
+from repeated_prisoners_dilemma.player import PlayerNumber
 
 
 @pytest.mark.parametrize(

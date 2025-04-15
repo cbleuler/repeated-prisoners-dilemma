@@ -1,9 +1,9 @@
 import pytest
 
-from strategy.random import UniformRandomStrategy
-from player import PlayerNumber
-from move import Move
-from errors import DomainError
+from repeated_prisoners_dilemma.strategy.random import UniformRandomStrategy
+from repeated_prisoners_dilemma.player import PlayerNumber
+from repeated_prisoners_dilemma.move import Move
+from repeated_prisoners_dilemma.errors import DomainError
 
 
 class TestUniformRandomStrategy:

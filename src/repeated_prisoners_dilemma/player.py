@@ -3,7 +3,7 @@ from __future__ import annotations
 from enum import Enum
 from dataclasses import dataclass
 
-from strategy.strategy import Strategy
+from repeated_prisoners_dilemma.strategy.strategy import Strategy
 
 
 class PlayerNumber(Enum):

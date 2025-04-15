@@ -1,6 +1,6 @@
 import numpy as np
 
-from move import Move
+from repeated_prisoners_dilemma.move import Move
 
 
 class Payoff:

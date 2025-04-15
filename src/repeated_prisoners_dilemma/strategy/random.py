@@ -1,8 +1,8 @@
 import numpy as np
 
-from move import Move
-from strategy.strategy import Strategy
-from errors import DomainError
+from repeated_prisoners_dilemma.move import Move
+from repeated_prisoners_dilemma.strategy.strategy import Strategy
+from repeated_prisoners_dilemma.errors import DomainError
 
 
 class UniformRandomStrategy(Strategy):

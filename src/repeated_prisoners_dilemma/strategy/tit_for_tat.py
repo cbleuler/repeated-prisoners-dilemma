@@ -1,7 +1,7 @@
-from strategy.strategy import Strategy
-from round import Round
-from player import PlayerNumber
-from move import Move
+from repeated_prisoners_dilemma.strategy.strategy import Strategy
+from repeated_prisoners_dilemma.round import Round
+from repeated_prisoners_dilemma.player import PlayerNumber
+from repeated_prisoners_dilemma.move import Move
 
 
 class TitForNTatStrategy(Strategy):

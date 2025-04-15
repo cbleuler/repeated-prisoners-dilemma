@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "repeated-prisoners-dilemma"
 version = "0.1.0"
-description = ""
+description = "Game of Repeated Prisoner's Dilemma"
 authors = ["Cedric Bleuler <cedric.bleuler@gmail.com>"]
 readme = "README.md"
 
@@ -9,7 +9,6 @@ readme = "README.md"
 python = "^3.11"
 pydantic = "^2.6.4"
 numpy = "^1.26.4"
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.1.1"
