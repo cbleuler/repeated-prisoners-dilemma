@@ -14,7 +14,7 @@ numpy = "^2.3.3"
 pytest = "^8.4.2"
 pytest-coverage = "^0.0"
 black = "^25.9.0"
-pylint = "^3.3.9"
+pylint = "^4.0.0"
 
 [build-system]
 requires = ["poetry-core"]
