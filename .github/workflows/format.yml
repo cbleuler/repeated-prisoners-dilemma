@@ -13,9 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/setup-poetry-env
+        name: "Repository Checkout"
+      - uses: ./.github/workflows/setup-uv-env
+        name: "Setup UV environment"
         with:
           python-version: "3.11"
+          install-ci-dependencies: "true"
+          install-dev-dependencies: "false"
       - name: run black
         run: |
-          black -l 120 --check .
+          uv run black -l 120 --check .

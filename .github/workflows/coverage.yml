@@ -13,10 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/setup-poetry-env
+        name: "Repository Checkout"
+      - uses: ./.github/workflows/setup-uv-env
+        name: "Setup UV environment"
         with:
           python-version: "3.11"
+          install-ci-dependencies: "true"
+          install-dev-dependencies: "false"
       - name: run coverage
         run: |
-          coverage run -m pytest
-          coverage report --fail-under=95
+          uv run coverage run -m pytest
+          uv run coverage report --fail-under=95

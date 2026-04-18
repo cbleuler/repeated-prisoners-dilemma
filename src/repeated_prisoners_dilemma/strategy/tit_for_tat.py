@@ -8,7 +8,7 @@ class TitForNTatStrategy(Strategy):
     def __init__(self, n_tats: int):
         self.n_tats = n_tats
 
-    def calculate_next_move(self, rounds: list[Round], player_number: PlayerNumber):
+    def calculate_next_move(self, rounds: list[Round], player_number: PlayerNumber) -> Move:
         if len(rounds) < self.n_tats:
             return Move.COOPERATE
 

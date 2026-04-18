@@ -2,8 +2,12 @@ from __future__ import annotations
 
 from enum import Enum
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
 
-from repeated_prisoners_dilemma.strategy.strategy import Strategy
+if TYPE_CHECKING:
+    from repeated_prisoners_dilemma.strategy.strategy import Strategy
+    from repeated_prisoners_dilemma.round import Round
+    from repeated_prisoners_dilemma.move import Move
 
 
 class PlayerNumber(Enum):
