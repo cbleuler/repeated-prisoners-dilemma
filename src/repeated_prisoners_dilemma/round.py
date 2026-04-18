@@ -1,14 +1,18 @@
 from __future__ import annotations
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
 
 from repeated_prisoners_dilemma.move import Move
 from repeated_prisoners_dilemma.player import PlayerNumber
 
+if TYPE_CHECKING:
+    from repeated_prisoners_dilemma.payoff import Payoff
+
 
 @dataclass
 class RoundResult:
-    move_player_1: str
-    move_player_2: str
+    move_player_1: Move
+    move_player_2: Move
 
     payoff_player_1: float
     payoff_player_2: float
@@ -26,13 +30,13 @@ class Round:
 
     def evaluate_round(self, payoff: "Payoff") -> RoundResult:
         return RoundResult(
-            move_player_1=str(self.move_player_1),
-            move_player_2=str(self.move_player_2),
+            move_player_1=self.move_player_1,
+            move_player_2=self.move_player_2,
             payoff_player_1=self.payoff_player(player_number=PlayerNumber.PLAYER_1, payoff=payoff),
             payoff_player_2=self.payoff_player(player_number=PlayerNumber.PLAYER_2, payoff=payoff),
         )
 
-    def get_player_move(self, player_number: PlayerNumber):
+    def get_player_move(self, player_number: PlayerNumber) -> Move:
         if player_number == PlayerNumber.PLAYER_1:
             return self.move_player_1
         return self.move_player_2

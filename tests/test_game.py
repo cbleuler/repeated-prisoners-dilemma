@@ -1,5 +1,6 @@
 import pytest
-from repeated_prisoners_dilemma.game import Game
+from repeated_prisoners_dilemma.errors import DomainError
+from repeated_prisoners_dilemma.game import Game, GameSummary
 from repeated_prisoners_dilemma.round import Round
 from repeated_prisoners_dilemma.move import Move
 
@@ -34,13 +35,47 @@ def test_run_game(game):
 
 def test_evaluate_game(game):
     game.run_game()
-    expected_evaluation = {
-        "moves_player_1": ["Cooperate", "Cooperate"],
-        "moves_player_2": ["Defect", "Defect"],
-        "total_score_player_1": 0,
-        "total_score_player_2": 10,
-        "relative_achieved_points_player_1": 0.0,
-        "relative_achieved_points_player_2": 1.6666666666666667,
-    }
 
-    assert game.evaluate_game() == expected_evaluation
+    summary = game.evaluate_game()
+
+    assert summary.moves_player_1 == [Move.COOPERATE, Move.COOPERATE]
+    assert summary.moves_player_2 == [Move.DEFECT, Move.DEFECT]
+    assert summary.total_score_player_1 == 0
+    assert summary.total_score_player_2 == 10
+    assert summary.score_relative_to_mutual_cooperation_player_1 == pytest.approx(0.0)
+    assert summary.score_relative_to_mutual_cooperation_player_2 == pytest.approx(10 / 6)
+    assert isinstance(summary, GameSummary)
+
+
+def test_rejects_wrong_number_of_players(prisoners_dilemma_payoff, cooperating_player_1):
+    with pytest.raises(DomainError):
+        Game(
+            min_number_of_rounds=1,
+            max_number_of_rounds=1,
+            payoff=prisoners_dilemma_payoff,
+            players=(cooperating_player_1,),
+        )
+
+
+def test_rejects_inverted_round_bounds(
+    prisoners_dilemma_payoff, cooperating_player_1, defecting_player_2
+):
+    with pytest.raises(DomainError):
+        Game(
+            min_number_of_rounds=5,
+            max_number_of_rounds=2,
+            payoff=prisoners_dilemma_payoff,
+            players=(cooperating_player_1, defecting_player_2),
+        )
+
+
+def test_accepts_list_for_players(
+    prisoners_dilemma_payoff, cooperating_player_1, defecting_player_2
+):
+    game = Game(
+        min_number_of_rounds=1,
+        max_number_of_rounds=1,
+        payoff=prisoners_dilemma_payoff,
+        players=[cooperating_player_1, defecting_player_2],
+    )
+    assert isinstance(game.players, tuple)

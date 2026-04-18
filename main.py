@@ -14,7 +14,7 @@ def main():
         payoff_cooperate_cooperate=3, payoff_defect_defect=1, payoff_cooperate_defect=0, payoff_defect_cooperate=5
     )
 
-    game = Game(min_number_of_rounds=20, max_number_of_rounds=20, payoff=payoff, players=[player_1, player_2])
+    game = Game(min_number_of_rounds=20, max_number_of_rounds=20, payoff=payoff, players=(player_1, player_2))
 
     game.run_game()
 

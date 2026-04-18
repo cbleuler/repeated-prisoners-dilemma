@@ -14,7 +14,7 @@ def test_evaluate_round(prisoners_dilemma_payoff, cooperating_player_1, defectin
     game_round = Round(cooperating_player_1.play_move([]), defecting_player_2.play_move([]))
 
     expected_round_result = RoundResult(
-        move_player_1="Cooperate", move_player_2="Defect", payoff_player_1=0, payoff_player_2=5
+        move_player_1=Move.COOPERATE, move_player_2=Move.DEFECT, payoff_player_1=0, payoff_player_2=5
     )
 
     assert game_round.evaluate_round(payoff=prisoners_dilemma_payoff) == expected_round_result
