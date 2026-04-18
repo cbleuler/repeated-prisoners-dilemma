@@ -16,9 +16,13 @@ jobs:
         python-version: ["3.11", "3.12"]
     steps:
       - uses: actions/checkout@v3
-      - uses: ./.github/workflows/setup-poetry-env
+        name: "Repository Checkout"
+      - uses: ./.github/workflows/setup-uv-env
+        name: "Setup UV environment"
         with:
           python-version: ${{ matrix.python-version }}
+          install-ci-dependencies: "true"
+          install-dev-dependencies: "false"
       - name: run pytest
         run: |
-          pytest
+          uv run pytest

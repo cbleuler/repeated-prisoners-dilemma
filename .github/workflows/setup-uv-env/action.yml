@@ -1,0 +1,24 @@
+name: "Setup environment"
+description: "Sets up python and installs all dependencies."
+inputs:
+  python-version:
+    description: "Version of python"
+    required: true
+  install-ci-dependencies:
+    description: "Weather to install CI dependency group"
+    required: true
+  install-dev-dependencies:
+    description: "Weather to install DEV dependency group"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Install uv with Python version ${{ inputs.python-version }}"
+      uses: astral-sh/setup-uv@v8.1.0
+      with:
+        version: "latest"
+        python-version: ${{ inputs.python-version }}
+    - name: "Install Project Requirements"
+      run: uv sync ${{ ( inputs.install-ci-dependencies && '--group ci') || '' }} ${{ ( !inputs.install-dev-dependencies && '--nogroup dev') || '' }}
+      shell: bash
