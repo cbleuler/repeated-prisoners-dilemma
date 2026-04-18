@@ -57,9 +57,7 @@ def test_rejects_wrong_number_of_players(prisoners_dilemma_payoff, cooperating_p
         )
 
 
-def test_rejects_inverted_round_bounds(
-    prisoners_dilemma_payoff, cooperating_player_1, defecting_player_2
-):
+def test_rejects_inverted_round_bounds(prisoners_dilemma_payoff, cooperating_player_1, defecting_player_2):
     with pytest.raises(DomainError):
         Game(
             min_number_of_rounds=5,
@@ -69,9 +67,7 @@ def test_rejects_inverted_round_bounds(
         )
 
 
-def test_accepts_list_for_players(
-    prisoners_dilemma_payoff, cooperating_player_1, defecting_player_2
-):
+def test_accepts_list_for_players(prisoners_dilemma_payoff, cooperating_player_1, defecting_player_2):
     game = Game(
         min_number_of_rounds=1,
         max_number_of_rounds=1,

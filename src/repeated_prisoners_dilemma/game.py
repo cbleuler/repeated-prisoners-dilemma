@@ -38,13 +38,9 @@ class Game:
                 f"(got {self.min_number_of_rounds} > {self.max_number_of_rounds})."
             )
         if self.min_number_of_rounds < 1:
-            raise DomainError(
-                f"min_number_of_rounds must be >= 1 (got {self.min_number_of_rounds})."
-            )
+            raise DomainError(f"min_number_of_rounds must be >= 1 (got {self.min_number_of_rounds}).")
 
-        self.number_of_rounds = int(
-            np.random.randint(self.min_number_of_rounds, self.max_number_of_rounds + 1)
-        )
+        self.number_of_rounds = int(np.random.randint(self.min_number_of_rounds, self.max_number_of_rounds + 1))
 
     def play_round(self) -> Round:
         move_player_1 = self.players[0].play_move(self.rounds)
@@ -65,9 +61,7 @@ class Game:
         total_score_player_1 = sum(result.payoff_player_1 for result in results)
         total_score_player_2 = sum(result.payoff_player_2 for result in results)
 
-        mutual_cooperation_total = (
-            self.payoff.calculate_payoff(Move.COOPERATE, Move.COOPERATE) * self.number_of_rounds
-        )
+        mutual_cooperation_total = self.payoff.calculate_payoff(Move.COOPERATE, Move.COOPERATE) * self.number_of_rounds
 
         return GameSummary(
             moves_player_1=moves_player_1,

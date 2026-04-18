@@ -31,20 +31,17 @@ class Payoff:
         self.payoffs[Move.DEFECT.value, Move.DEFECT.value] = payoff_defect_defect
 
     @staticmethod
-    def _validate_prisoners_dilemma(
-        reward: float, sucker: float, temptation: float, punishment: float
-    ) -> None:
-        if not (temptation > reward > punishment > sucker):
+    def _validate_prisoners_dilemma(reward: float, sucker: float, temptation: float, punishment: float) -> None:
+        if not (temptation > reward > punishment > sucker):  # pylint: disable=superfluous-parens
             warnings.warn(
                 "Payoff does not follow traditional prisoner's dilemma order T > R > P > S "
                 f"(got T={temptation}, R={reward}, P={punishment}, S={sucker}).",
                 PayoffWarning,
                 stacklevel=3,
             )
-        elif not (2 * reward > temptation + sucker):
+        elif not (2 * reward > temptation + sucker):  # pylint: disable=superfluous-parens
             warnings.warn(
-                "Payoff does not satisfy 2R > T + S "
-                f"(got 2R={2 * reward}, T+S={temptation + sucker}).",
+                "Payoff does not satisfy 2R > T + S " f"(got 2R={2 * reward}, T+S={temptation + sucker}).",
                 PayoffWarning,
                 stacklevel=3,
             )
